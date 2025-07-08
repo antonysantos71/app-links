@@ -6,6 +6,9 @@ interface Category {
   icon: keyof typeof MaterialIcons.glyphMap
 }
 
+// Tipagem para as categorias, onde cada categoria tem um id, nome e ícone
+// O ícon é uma chave do objeto glyphMap do MaterialIcons, que contém todos os
+
 export const categories: Category[] = [
   { id: "1", name: "Projeto", icon: "code" },
   { id: "2", name: "Tecnologia", icon: "computer" },

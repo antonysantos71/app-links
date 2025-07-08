@@ -2,10 +2,9 @@ import { Image, TouchableOpacity, View } from "react-native"; //componentes do p
 import { styles } from "./styles";
 import { MaterialIcons } from "@expo/vector-icons";
 import { colors } from "@/styles/colors";
-import { Category } from "@/components/category";
-import { categories } from "@/utils/categories";
-import { useState } from "react";
 import { Categories } from "@/components/categories";
+import { Link } from "@/components/link";
+import { FlatList } from "react-native";
 
 export default function Index() {
   return (
@@ -16,8 +15,23 @@ export default function Index() {
           <MaterialIcons name="add" size={32} color={colors.green[300]} />
         </TouchableOpacity>
       </View>
-
       <Categories />
+
+      <FlatList
+        data={["1", "2", "3", "4", "5", "6", "7", "8"]}
+        keyExtractor={(item) => item}
+        renderItem={() => (
+          <Link
+            name="Rocketseat"
+            url="https://rocketseat.com.br"
+            onDetails={() => {}}
+            
+          />
+        )}
+        style={styles.links}
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={styles.linkContent}
+      />
     </View>
   );
 }

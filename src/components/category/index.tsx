@@ -14,7 +14,7 @@ export function Category({ name, icon, isSelected, ...props }: Categories) {
   return (
     <Pressable style={styles.container} {...props}>
       <MaterialIcons name={icon} size={16} color={color} />
-      <Text style={[styles.name, {color}]}>{name}</Text> // qnd quiser usar mais de um estilo
+      <Text style={[styles.name, {color}]}>{name}</Text> // quando quiser usar mais de um estilo
     </Pressable>
   );
 }
