@@ -1,4 +1,4 @@
-import { Image, TouchableOpacity, View } from "react-native"; //componentes do proprio react-native
+import { Image, Text, Modal, TouchableOpacity, View } from "react-native"; //componentes do proprio react-native
 import { styles } from "./styles";
 import { MaterialIcons } from "@expo/vector-icons";
 import { colors } from "@/styles/colors";
@@ -18,20 +18,35 @@ export default function Index() {
       <Categories />
 
       <FlatList
-        data={["1", "2", "3", "4", "5", "6", "7", "8"]}
+        data={["1", "2", "3", "4", "5", "6", "7"]}
         keyExtractor={(item) => item}
         renderItem={() => (
           <Link
             name="Rocketseat"
             url="https://rocketseat.com.br"
             onDetails={() => {}}
-            
           />
         )}
         style={styles.links}
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.linkContent}
       />
+
+      <Modal visible transparent>
+        <View style={styles.modal}>
+          <View style={styles.modalContent}>
+            <View style={styles.modalHeader}>
+              <Text style={styles.modalCategory}>Curso</Text>
+              <TouchableOpacity>
+                <MaterialIcons name="close" size={24} color={colors.gray[400]} />
+              </TouchableOpacity>
+            </View>
+            <Text style={styles.modalLinkName}>Rocktseat</Text>
+
+            <Text style={styles.modalUrl}>https://rocketseat.com.br</Text>
+          </View>
+        </View>
+      </Modal>
     </View>
   );
 }
