@@ -5,13 +5,15 @@ import { colors } from "@/styles/colors";
 import { Categories } from "@/components/categories";
 import { Link } from "@/components/link";
 import { FlatList } from "react-native";
+import { Option } from "@/components/option";
+import { router } from "expo-router";
 
 export default function Index() {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
         <Image source={require("@/assets/logo.png")} style={styles.logo} />
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => router.navigate("/add")}>
           <MaterialIcons name="add" size={32} color={colors.green[300]} />
         </TouchableOpacity>
       </View>
@@ -32,7 +34,7 @@ export default function Index() {
         contentContainerStyle={styles.linkContent}
       />
 
-      <Modal visible transparent>
+      <Modal visible={false} transparent>
         <View style={styles.modal}>
           <View style={styles.modalContent}>
             <View style={styles.modalHeader}>
@@ -44,6 +46,11 @@ export default function Index() {
             <Text style={styles.modalLinkName}>Rocktseat</Text>
 
             <Text style={styles.modalUrl}>https://rocketseat.com.br</Text>
+
+            <View style={styles.modalFooter}> 
+              <Option name="Excluir" icon="delete" variant="secondary" />
+              <Option name="Abrir" icon="language"/>
+            </View>
           </View>
         </View>
       </Modal>
