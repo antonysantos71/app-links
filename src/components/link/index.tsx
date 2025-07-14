@@ -13,7 +13,7 @@ export function Link({ name, url, onDetails }: ILinkProps) {
   return (
     <View style={styles.container}>
       <View style={styles.details}>
-        // numberOfLines se for maior que a linha o resto fica "..."
+        {/* numberOfLines se for maior que a linha o resto fica "..." */}
         <Text style={styles.name} numberOfLines={1}>
           {name}
         </Text>{" "}
