@@ -1,18 +1,28 @@
-import { View, Text, TouchableOpacity } from 'react-native'
-import { styles } from './styeles'
-import { MaterialIcons } from '@expo/vector-icons'
-import { colors } from '@/styles/colors'
+import { View, Text, TouchableOpacity } from "react-native";
+import { styles } from "./styeles";
+import { MaterialIcons } from "@expo/vector-icons";
+import { colors } from "@/styles/colors";
+import { router } from "expo-router";
+import { Categories } from "@/components/categories";
+import { Input } from "@/components/input";
+import { Button } from "@/components/button";
 
 export default function Add() {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => router.back()}>
           <MaterialIcons name="arrow-back" size={24} color={colors.gray[200]} />
         </TouchableOpacity>
-        <Text style={styles.title}>Adicionar Link</Text>
+        <Text style={styles.title}>Novo</Text>
       </View>
       <Text style={styles.label}>Cole o link aqui</Text>
+      <Categories />
+      <View style={styles.form}>
+        <Input placeholder="Nome do link" />
+        <Input placeholder="URL do link" />
+        <Button title="Adicionar Link" /> 
+      </View>
     </View>
-  )
+  );
 }
